@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Model.Configuration;
 using Model.Entities;
+using Domain.Interfaces;   
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,7 +17,7 @@ builder.Services.AddDbContextFactory<AnalyticsContext>(
         new MySqlServerVersion(new Version(8, 0, 27)))
         );
 
-builder.Services.AddTransient<IRepositoryAsync<Workout>, WorkoutRepository>();
+//builder.Services.AddTransient<IRepositoryAsync<Workout>, WorkoutRepository>();
 
 
 // Configure the HTTP request pipeline.
