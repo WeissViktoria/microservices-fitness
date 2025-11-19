@@ -1,7 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Model.Configuration;
 using Model.Entities;
-using Domain.Interfaces;   
 
 var builder = WebApplication.CreateBuilder(args);
 
