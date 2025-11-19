@@ -1,6 +1,11 @@
-﻿namespace Domain.Repositories;
+﻿using Microsoft.EntityFrameworkCore;
+using Model.Entities;
 
-public class AnalyticRepository
+namespace Domain.Repositories;
+
+public class AnalyticRepository: ARepositoryAsync<Analytics>
 {
-    
+    public AnalyticRepository(DbContext context) : base(context)
+    {
+    }
 }
