@@ -1,6 +1,11 @@
-﻿namespace Domain.Repositories;
+﻿using Microsoft.EntityFrameworkCore;
+using Model.Entities;
 
-public class RecommendationRepository
+namespace Domain.Repositories;
+
+public class RecommendationRepository : ARepositoryAsync<Recommendation>
 {
-    
+    public RecommendationRepository(DbContext context) : base(context)
+    {
+    }
 }

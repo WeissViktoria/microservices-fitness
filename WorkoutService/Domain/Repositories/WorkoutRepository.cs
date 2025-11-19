@@ -1,6 +1,11 @@
-﻿namespace Domain.Repositories;
+﻿using Microsoft.EntityFrameworkCore;
+using Model.Entities;
 
-public class WorkoutRepository
+namespace Domain.Repositories;
+
+public class WorkoutRepository : ARepositoryAsync<Workout>
 {
-    
+    public WorkoutRepository(DbContext context) : base(context)
+    {
+    }
 }
