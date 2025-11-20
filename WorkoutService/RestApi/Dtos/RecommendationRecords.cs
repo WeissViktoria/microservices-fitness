@@ -2,5 +2,6 @@
 
 namespace RestApi.Dtos;
 
-public class GenerateRecommendationDto();
-public class UnlockPremiumDto();
+public class CreateRecommendationDto();
+public class ReadRecommendationDto();
+public class UpdateRecommendationDto();
