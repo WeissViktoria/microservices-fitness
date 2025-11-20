@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("WebGUI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fb2eeec87359ecdec1e1c82701f0def0c99e6f0d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+51ee72b31815bdaeb68edc4ca229d7ffd81c8c87")]
 [assembly: System.Reflection.AssemblyProductAttribute("WebGUI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("WebGUI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
