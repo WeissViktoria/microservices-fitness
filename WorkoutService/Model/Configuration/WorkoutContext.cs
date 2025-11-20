@@ -3,9 +3,9 @@ using Model.Entities;
 
 namespace Model.Configuration;
 
-public class WorkoutContext : DbContext
+public class WorkoutDbContext : DbContext
 {
-    public WorkoutContext(DbContextOptions<WorkoutContext> options) : base(options) { }
-    
+    public WorkoutDbContext(DbContextOptions<WorkoutDbContext> options) : base(options) {}
+
     public DbSet<Workout> Workouts { get; set; }
 }

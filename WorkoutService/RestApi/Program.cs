@@ -10,10 +10,24 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddDbContextFactory<WorkoutContext?>(
-    options => options.UseMySql(
-        builder.Configuration.GetConnectionString("DefaultConnection"),
-        new MySqlServerVersion(new Version(8, 0, 27))));
+builder.Services.AddDbContext<WorkoutDbContext>(options =>
+    options.UseMySql(
+        builder.Configuration.GetConnectionString("WorkoutDb"),
+        ServerVersion.AutoDetect(builder.Configuration.GetConnectionString("WorkoutDb"))
+    ));
+
+builder.Services.AddDbContext<AnalyticsDbContext>(options =>
+    options.UseMySql(
+        builder.Configuration.GetConnectionString("AnalyticsDb"),
+        ServerVersion.AutoDetect(builder.Configuration.GetConnectionString("AnalyticsDb"))
+    ));
+
+builder.Services.AddDbContext<RecommendationDbContext>(options =>
+    options.UseMySql(
+        builder.Configuration.GetConnectionString("RecommendationDb"),
+        ServerVersion.AutoDetect(builder.Configuration.GetConnectionString("RecommendationDb"))
+    ));
+
 
 var app = builder.Build();
 

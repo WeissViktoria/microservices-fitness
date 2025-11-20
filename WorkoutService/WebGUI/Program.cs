@@ -9,12 +9,23 @@ builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
 
-builder.Services.AddDbContextFactory<AnalyticsContext>(
-    options => options.UseMySql(
-        builder.Configuration
-            .GetConnectionString("DefaultConnection"),
-        new MySqlServerVersion(new Version(8, 0, 27)))
-        );
+builder.Services.AddDbContext<WorkoutDbContext>(options =>
+    options.UseMySql(
+        builder.Configuration.GetConnectionString("WorkoutDb"),
+        ServerVersion.AutoDetect(builder.Configuration.GetConnectionString("WorkoutDb"))
+    ));
+
+builder.Services.AddDbContext<AnalyticsDbContext>(options =>
+    options.UseMySql(
+        builder.Configuration.GetConnectionString("AnalyticsDb"),
+        ServerVersion.AutoDetect(builder.Configuration.GetConnectionString("AnalyticsDb"))
+    ));
+
+builder.Services.AddDbContext<RecommendationDbContext>(options =>
+    options.UseMySql(
+        builder.Configuration.GetConnectionString("RecommendationDb"),
+        ServerVersion.AutoDetect(builder.Configuration.GetConnectionString("RecommendationDb"))
+    ));
 
 //builder.Services.AddTransient<IRepositoryAsync<Workout>, WorkoutRepository>();
 

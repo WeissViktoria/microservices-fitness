@@ -5,4 +5,3 @@ namespace RestApi.Dtos;
 public class CreateWorkoutDto();
 public class ReadWorkoutDto();
 public class UpdateWorkoutDto();
-public class DeleteWorkoutDto();

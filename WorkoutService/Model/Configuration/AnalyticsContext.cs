@@ -3,9 +3,9 @@ using Model.Entities;
 
 namespace Model.Configuration;
 
-public class AnalyticsContext: DbContext
+public class AnalyticsDbContext : DbContext
 {
-    public AnalyticsContext(DbContextOptions<WorkoutContext> options) : base(options) { }
-    
-    public DbSet<Analytics> Analytics { get; set; }
+    public AnalyticsDbContext(DbContextOptions<AnalyticsDbContext> options) : base(options) {}
+
+    public DbSet<History> History { get; set; }
 }

@@ -3,6 +3,7 @@
 public class AnalyticsRecords
 {
     public record ReadAnalyticsDto();
+    public record CreateAnalyticsDto();
 
-    public record HistoricAnalyticDto();
+    public record UpdateAnalyticsDto();
 }

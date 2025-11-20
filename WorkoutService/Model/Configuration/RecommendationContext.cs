@@ -3,9 +3,9 @@ using Model.Entities;
 
 namespace Model.Configuration;
 
-public class RecommendationContext : DbContext
+public class RecommendationDbContext : DbContext
 {
-    public RecommendationContext(DbContextOptions<WorkoutContext> options) : base(options) { }
-    
-    public DbSet<Recommendation> Recommendation { get; set; }
+    public RecommendationDbContext(DbContextOptions<RecommendationDbContext> options) : base(options) {}
+
+    public DbSet<Recommendation> Recommendations { get; set; }
 }

@@ -1,63 +1,86 @@
 ﻿using Domain.Interfaces;
+using Mapster;
+using MapsterMapper;
 using Microsoft.AspNetCore.Mvc;
 
 namespace RestApi.Controllers;
 
-public class AController<TEntity> : ControllerBase where TEntity : class
+public abstract class AController<TEntity, TCreateDto, TReadDto ,TUpdateDto> : ControllerBase
+    where TEntity : class
+    where TCreateDto : class
+    where TReadDto : class
+    where TUpdateDto : class
 {
-    private IRepositoryAsync<TEntity> _repository;
-    private ILogger<AController<TEntity>> _logger;
+    protected readonly IRepositoryAsync<TEntity> Repository;
+    protected readonly ILogger<AController<TEntity, TCreateDto, TReadDto, TUpdateDto>> Logger;
 
-    public AController(IRepositoryAsync<TEntity> repository, ILogger<AController<TEntity>> logger)
+    public AController(IRepositoryAsync<TEntity> repository,
+        ILogger<AController<TEntity, TCreateDto, TReadDto, TUpdateDto>> logger)
     {
-        _repository = repository;
-        _logger = logger;
+        Repository = repository;
+        Logger = logger;
     }
 
     [HttpPost]
-    public async Task<ActionResult<TEntity>> Create(TEntity t)
+    public async Task<ActionResult<TReadDto>> CreateAsync(TCreateDto record)
     {
-        await _repository.CreateAsync(t);
-        _logger.LogInformation($"Created entity: {t}");
-        return t;
+        var entity = record.Adapt<TEntity>();
+        var data = await Repository.CreateAsync(entity);
+        return Ok(data.Adapt<TReadDto>());
     }
 
     [HttpGet("{id:int")]
-    public async Task<ActionResult<TEntity>> Read(int id)
+    public async Task<ActionResult<TReadDto>> ReadAsync(int id)
     {
-        var data = await _repository.ReadAsync(id);
+        TEntity? data = await Repository.ReadAsync(id);
+
+        if (data is null)
+        {
+            Logger.LogInformation($"Invalid Request: Entity not present - {id}");
+            return NotFound();
+        }
         
-        if(data is null) return NotFound();
-        _logger.LogInformation($"reading entity with id {id}");
-        
-        return Ok(data);
+        Logger.LogInformation($"Sending Entity: {id}");
+        return Ok(data.Adapt<TReadDto>());
     }
 
     [HttpGet]
-    public async Task<ActionResult<List<TEntity>>> ReadAll()
+    public async Task<ActionResult<List<TReadDto>>> ReadAllAsync()
     {
-        return Ok(await _repository.ReadAllAsync());
+        var data = await Repository.ReadAllAsync();
+        var dtos = data.Select(entity => entity.Adapt<TReadDto>()).ToList();
+        return Ok(dtos);
     }
 
     [HttpPut("{id:int}")]
-    public async Task<ActionResult<TEntity>> Update(int id, TEntity t)
+    public async Task<IActionResult> UpdateAsync(int id, TUpdateDto record)
     {
-        var data = await _repository.ReadAsync(id);
-        
-        if(data is null) return NotFound();
+        TEntity? data = await Repository.ReadAsync(id);
 
-        await _repository.UpdateAsync(t);
-        _logger.LogInformation($"updated entity with id {id}");
+        if (data is null)
+        {
+            Logger.LogInformation($"Invalid Request: Entity not present - {id}");
+            return NotFound();
+        }
+        await Repository.UpdateAsync(record.Adapt<TEntity>());
+        Logger.LogInformation($"Update Entity: {id}");
+
+        return NoContent();
+    }
+
+    [HttpDelete("{id:int}")]
+    public async Task<IActionResult> DeleteAsync(int id)
+    {
+        TEntity? data = await Repository.ReadAsync(id);
+        
+        if(data is null)
+            return NotFound();
+        
+        await Repository.DeleteAsync(data);
+        Logger.LogInformation($"Delete Entity: {id}");
+
         return NoContent();
     }
     
-    [HttpDelete("{id:int}")]
-    public async Task<ActionResult> DeleteAsync(int id)
-    {
-        var entity = await _repository.ReadAsync(id);
-        if(entity is null) return NotFound();
-        await _repository.DeleteAsync(entity);
-        _logger.LogInformation($"deleted entity with id {id}");
-        return NoContent();
-    }
+    
 }
