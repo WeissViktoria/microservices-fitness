@@ -11,3 +11,16 @@ C:\Git\ITP\microservices-fitness\WorkoutService\Model\obj\Debug\net8.0\Model.dll
 C:\Git\ITP\microservices-fitness\WorkoutService\Model\obj\Debug\net8.0\refint\Model.dll
 C:\Git\ITP\microservices-fitness\WorkoutService\Model\obj\Debug\net8.0\Model.pdb
 C:\Git\ITP\microservices-fitness\WorkoutService\Model\obj\Debug\net8.0\ref\Model.dll
+C:\microservices-fitness\WorkoutService\Model\bin\Debug\net8.0\Model.deps.json
+C:\microservices-fitness\WorkoutService\Model\bin\Debug\net8.0\Model.dll
+C:\microservices-fitness\WorkoutService\Model\bin\Debug\net8.0\Model.pdb
+C:\microservices-fitness\WorkoutService\Model\obj\Debug\net8.0\Model.csproj.AssemblyReference.cache
+C:\microservices-fitness\WorkoutService\Model\obj\Debug\net8.0\Model.GeneratedMSBuildEditorConfig.editorconfig
+C:\microservices-fitness\WorkoutService\Model\obj\Debug\net8.0\Model.AssemblyInfoInputs.cache
+C:\microservices-fitness\WorkoutService\Model\obj\Debug\net8.0\Model.AssemblyInfo.cs
+C:\microservices-fitness\WorkoutService\Model\obj\Debug\net8.0\Model.csproj.CoreCompileInputs.cache
+C:\microservices-fitness\WorkoutService\Model\obj\Debug\net8.0\Model.sourcelink.json
+C:\microservices-fitness\WorkoutService\Model\obj\Debug\net8.0\Model.dll
+C:\microservices-fitness\WorkoutService\Model\obj\Debug\net8.0\refint\Model.dll
+C:\microservices-fitness\WorkoutService\Model\obj\Debug\net8.0\Model.pdb
+C:\microservices-fitness\WorkoutService\Model\obj\Debug\net8.0\ref\Model.dll
