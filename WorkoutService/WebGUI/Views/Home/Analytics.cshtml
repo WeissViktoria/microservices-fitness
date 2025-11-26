@@ -1,0 +1,205 @@
+@{
+    ViewData["Title"] = "Analytics & Insights";
+}
+
+<div class="container py-4">
+    <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center mb-4">
+        <div>
+            <h1 class="display-6">Analyse & Statistiken</h1>
+            <p class="text-muted mb-0">Durchschnittswerte, Trends und Bestleistungen aus Workout-, Analytics- und Recommendation-Service.</p>
+        </div>
+        <div class="mt-3 mt-md-0">
+            <button class="btn btn-outline-primary me-2">
+                <span class="small text-uppercase">WorkoutService</span><br/>
+                Letzte Synchronisation: vor 5 Min.
+            </button>
+            <button class="btn btn-outline-success me-2">
+                <span class="small text-uppercase">AnalyticsService</span><br/>
+                Trenddaten aktiv
+            </button>
+            <button class="btn btn-outline-warning">
+                <span class="small text-uppercase">RecommendationService</span><br/>
+                Neue Tipps verfügbar
+            </button>
+        </div>
+    </div>
+
+    <div class="row g-3 mb-4">
+        <div class="col-md-3">
+            <div class="card h-100 border-0 shadow-sm">
+                <div class="card-body">
+                    <p class="text-muted text-uppercase fw-semibold small">Ø Dauer</p>
+                    <h3>41 min</h3>
+                    <p class="text-success mb-0">+8 % vs. letzter Monat</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card h-100 border-0 shadow-sm">
+                <div class="card-body">
+                    <p class="text-muted text-uppercase fw-semibold small">Ø Kalorien</p>
+                    <h3>355 kcal</h3>
+                    <p class="text-muted mb-0">basierend auf 42 Workouts</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card h-100 border-0 shadow-sm">
+                <div class="card-body">
+                    <p class="text-muted text-uppercase fw-semibold small">Bestleistung</p>
+                    <h3 class="fs-5">5 km Lauf in 22:15</h3>
+                    <p class="text-muted mb-0">Ermittelt vom AnalyticsService</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card h-100 border-0 shadow-sm">
+                <div class="card-body">
+                    <p class="text-muted text-uppercase fw-semibold small">Aktive Empfehlung</p>
+                    <h3 class="fs-5">Progressives Intervalltraining</h3>
+                    <p class="text-muted mb-0">RecommendationService</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row g-4 mb-4">
+        <div class="col-lg-7">
+            <div class="card h-100">
+                <div class="card-header bg-transparent d-flex justify-content-between align-items-center">
+                    <h2 class="h5 mb-0">Workouts (letzte 30 Tage)</h2>
+                    <span class="text-muted small">Quelle: WorkoutService</span>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table align-middle mb-0">
+                            <thead>
+                            <tr>
+                                <th>Datum</th>
+                                <th>Typ</th>
+                                <th>Intensität</th>
+                                <th>Dauer</th>
+                                <th>Kalorien</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>21.05.</td>
+                                <td>HIIT</td>
+                                <td><span class="badge bg-danger">Hoch</span></td>
+                                <td>35 min</td>
+                                <td>420</td>
+                            </tr>
+                            <tr>
+                                <td>19.05.</td>
+                                <td>Krafttraining</td>
+                                <td><span class="badge bg-warning text-dark">Mittel</span></td>
+                                <td>50 min</td>
+                                <td>360</td>
+                            </tr>
+                            <tr>
+                                <td>17.05.</td>
+                                <td>Yoga</td>
+                                <td><span class="badge bg-success">Niedrig</span></td>
+                                <td>40 min</td>
+                                <td>190</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-5">
+            <div class="card h-100">
+                <div class="card-header bg-transparent d-flex justify-content-between align-items-center">
+                    <h2 class="h5 mb-0">Trenddiagramm</h2>
+                    <span class="text-muted small">AnalyticsService</span>
+                </div>
+                <div class="card-body">
+                    <div class="row text-center">
+                        <div class="col-6 mb-3">
+                            <div class="text-muted text-uppercase small">Monatl. Workouts</div>
+                            <div class="display-6">13</div>
+                            <p class="text-success small mb-0">+1 vs. März</p>
+                        </div>
+                        <div class="col-6 mb-3">
+                            <div class="text-muted text-uppercase small">Kalorien Trend</div>
+                            <div class="display-6">+6%</div>
+                            <p class="text-muted small mb-0">durch längere Sessions</p>
+                        </div>
+                    </div>
+                    <div class="bg-light rounded p-4">
+                        <p class="text-muted small mb-1">Diagramm-Platzhalter</p>
+                        <div class="progress mb-2" style="height: 6px;">
+                            <div class="progress-bar bg-primary" role="progressbar" style="width: 80%;"></div>
+                        </div>
+                        <div class="progress" style="height: 6px;">
+                            <div class="progress-bar bg-success" role="progressbar" style="width: 65%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row g-4">
+        <div class="col-lg-6">
+            <div class="card h-100">
+                <div class="card-header bg-transparent d-flex justify-content-between align-items-center">
+                    <h2 class="h5 mb-0">Bestleistungen</h2>
+                    <span class="text-muted small">AnalyticsService</span>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <div>
+                            <strong>10 km Lauf</strong>
+                            <div class="text-muted small">April • Tempodurchschnitt 4:52 min/km</div>
+                        </div>
+                        <span class="badge bg-primary">Neue PB</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <div>
+                            <strong>Max. Deadlift</strong>
+                            <div class="text-muted small">März • 165 kg</div>
+                        </div>
+                        <span class="badge bg-secondary">+5 kg</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <div>
+                            <strong>VO2max Score</strong>
+                            <div class="text-muted small">aktuell 52 ml/kg/min</div>
+                        </div>
+                        <span class="badge bg-success">im grünen Bereich</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="card h-100 border-primary">
+                <div class="card-header bg-transparent d-flex justify-content-between align-items-center">
+                    <h2 class="h5 mb-0">Empfehlungen</h2>
+                    <span class="text-muted small">RecommendationService</span>
+                </div>
+                <div class="card-body">
+                    <div class="mb-4">
+                        <span class="badge bg-primary mb-2">Training</span>
+                        <h3 class="h6 mb-1">Progressives Intervalltraining</h3>
+                        <p class="text-muted mb-0">Sprint-Intervalle 30/90 s für VO2max-Boost – basierend auf AnalyticsTrend.</p>
+                    </div>
+                    <div class="mb-4">
+                        <span class="badge bg-success mb-2">Ernährung</span>
+                        <h3 class="h6 mb-1">Proteinreiches Frühstück</h3>
+                        <p class="text-muted mb-0">30 g Protein in den ersten 30 Minuten fördert Regeneration nach Morgen-Workouts.</p>
+                    </div>
+                    <div>
+                        <span class="badge bg-warning text-dark mb-2">Lifestyle</span>
+                        <h3 class="h6 mb-1">Aktive Regeneration</h3>
+                        <p class="text-muted mb-0">Zwei Mobility-Sessions pro Woche reduzieren das Verletzungsrisiko um 14 %.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

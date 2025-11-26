@@ -1,9 +1,26 @@
-﻿namespace RestApi.Dtos;
+﻿using Domain.Interfaces;
 
-public class AnalyticsRecords
+namespace RestApi.Dtos;
+
+public class AnalyticsRecords 
 {
-    public record ReadAnalyticsDto();
-    public record CreateAnalyticsDto();
+    public record ReadAnalyticsDto(
+        int AnalyticsId,
+        int ParticipantId,
+        DateTime PeriodStart,
+        DateTime PeriodEnd,
+        int TotalWorkouts,
+        double AverageDuration,
+        double TotalCalories,
+        string? BestPerformance = null);
+    public record CreateAnalyticsDto(
+        int ParticipantId,
+        DateTime PeriodStart,
+        DateTime PeriodEnd);
 
-    public record UpdateAnalyticsDto();
+    public record UpdateAnalyticsDto(
+        int AnalyticsId,
+        int TotalWorkouts,
+        double AverageDuration,
+        double TotalCalories);
 }

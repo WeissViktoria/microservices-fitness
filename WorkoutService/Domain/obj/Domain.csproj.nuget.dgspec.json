@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Git\\ITP\\microservices-fitness\\WorkoutService\\Domain\\Domain.csproj": {}
+    "C:\\microservices-fitness\\WorkoutService\\Domain\\Domain.csproj": {}
   },
   "projects": {
-    "C:\\Git\\ITP\\microservices-fitness\\WorkoutService\\Domain\\Domain.csproj": {
+    "C:\\microservices-fitness\\WorkoutService\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Git\\ITP\\microservices-fitness\\WorkoutService\\Domain\\Domain.csproj",
+        "projectUniqueName": "C:\\microservices-fitness\\WorkoutService\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "C:\\Git\\ITP\\microservices-fitness\\WorkoutService\\Domain\\Domain.csproj",
-        "packagesPath": "C:\\Users\\vikto\\.nuget\\packages\\",
-        "outputPath": "C:\\Git\\ITP\\microservices-fitness\\WorkoutService\\Domain\\obj\\",
+        "projectPath": "C:\\microservices-fitness\\WorkoutService\\Domain\\Domain.csproj",
+        "packagesPath": "C:\\Users\\ninag\\.nuget\\packages\\",
+        "outputPath": "C:\\microservices-fitness\\WorkoutService\\Domain\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\vikto\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\ninag\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -32,11 +28,11 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Git\\ITP\\microservices-fitness\\WorkoutService\\Model\\Model.csproj": {
-                "projectPath": "C:\\Git\\ITP\\microservices-fitness\\WorkoutService\\Model\\Model.csproj"
+              "C:\\microservices-fitness\\WorkoutService\\Model\\Model.csproj": {
+                "projectPath": "C:\\microservices-fitness\\WorkoutService\\Model\\Model.csproj"
               },
-              "C:\\Git\\ITP\\microservices-fitness\\WorkoutService\\WebGUI\\WebGUI.csproj": {
-                "projectPath": "C:\\Git\\ITP\\microservices-fitness\\WorkoutService\\WebGUI\\WebGUI.csproj"
+              "C:\\microservices-fitness\\WorkoutService\\WebGUI\\WebGUI.csproj": {
+                "projectPath": "C:\\microservices-fitness\\WorkoutService\\WebGUI\\WebGUI.csproj"
               }
             }
           }
@@ -66,30 +62,40 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[8.0.21, 8.0.21]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[8.0.21, 8.0.21]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[8.0.21, 8.0.21]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Users\\ninag\\.dotnet\\sdk\\9.0.306/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Git\\ITP\\microservices-fitness\\WorkoutService\\Model\\Model.csproj": {
+    "C:\\microservices-fitness\\WorkoutService\\Model\\Model.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Git\\ITP\\microservices-fitness\\WorkoutService\\Model\\Model.csproj",
+        "projectUniqueName": "C:\\microservices-fitness\\WorkoutService\\Model\\Model.csproj",
         "projectName": "Model",
-        "projectPath": "C:\\Git\\ITP\\microservices-fitness\\WorkoutService\\Model\\Model.csproj",
-        "packagesPath": "C:\\Users\\vikto\\.nuget\\packages\\",
-        "outputPath": "C:\\Git\\ITP\\microservices-fitness\\WorkoutService\\Model\\obj\\",
+        "projectPath": "C:\\microservices-fitness\\WorkoutService\\Model\\Model.csproj",
+        "packagesPath": "C:\\Users\\ninag\\.nuget\\packages\\",
+        "outputPath": "C:\\microservices-fitness\\WorkoutService\\Model\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\vikto\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\ninag\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -142,30 +148,40 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[8.0.21, 8.0.21]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[8.0.21, 8.0.21]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[8.0.21, 8.0.21]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Users\\ninag\\.dotnet\\sdk\\9.0.306/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Git\\ITP\\microservices-fitness\\WorkoutService\\WebGUI\\WebGUI.csproj": {
+    "C:\\microservices-fitness\\WorkoutService\\WebGUI\\WebGUI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Git\\ITP\\microservices-fitness\\WorkoutService\\WebGUI\\WebGUI.csproj",
+        "projectUniqueName": "C:\\microservices-fitness\\WorkoutService\\WebGUI\\WebGUI.csproj",
         "projectName": "WebGUI",
-        "projectPath": "C:\\Git\\ITP\\microservices-fitness\\WorkoutService\\WebGUI\\WebGUI.csproj",
-        "packagesPath": "C:\\Users\\vikto\\.nuget\\packages\\",
-        "outputPath": "C:\\Git\\ITP\\microservices-fitness\\WorkoutService\\WebGUI\\obj\\",
+        "projectPath": "C:\\microservices-fitness\\WorkoutService\\WebGUI\\WebGUI.csproj",
+        "packagesPath": "C:\\Users\\ninag\\.nuget\\packages\\",
+        "outputPath": "C:\\microservices-fitness\\WorkoutService\\WebGUI\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\vikto\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\ninag\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -179,8 +195,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Git\\ITP\\microservices-fitness\\WorkoutService\\Model\\Model.csproj": {
-                "projectPath": "C:\\Git\\ITP\\microservices-fitness\\WorkoutService\\Model\\Model.csproj"
+              "C:\\microservices-fitness\\WorkoutService\\Model\\Model.csproj": {
+                "projectPath": "C:\\microservices-fitness\\WorkoutService\\Model\\Model.csproj"
               }
             }
           }
@@ -222,6 +238,24 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[8.0.21, 8.0.21]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[8.0.21, 8.0.21]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[8.0.21, 8.0.21]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[8.0.21, 8.0.21]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -230,7 +264,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Users\\ninag\\.dotnet\\sdk\\9.0.306/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

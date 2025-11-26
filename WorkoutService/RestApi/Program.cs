@@ -1,5 +1,9 @@
+using Domain.Interfaces;
+using Domain.Repositories;
+using Domain.Services;
 using Microsoft.EntityFrameworkCore;
 using Model.Configuration;
+using Model.Entities;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -27,6 +31,18 @@ builder.Services.AddDbContext<RecommendationDbContext>(options =>
         builder.Configuration.GetConnectionString("RecommendationDb"),
         ServerVersion.AutoDetect(builder.Configuration.GetConnectionString("RecommendationDb"))
     ));
+
+// Register repositories
+builder.Services.AddScoped<IRepositoryAsync<Workout>, WorkoutRepository>();
+builder.Services.AddScoped<IRepositoryAsync<History>, AnalyticRepository>();
+
+// Register services
+builder.Services.AddScoped<AnalyticService>(sp =>
+{
+    var analyticsContext = sp.GetRequiredService<AnalyticsDbContext>();
+    var workoutContext = sp.GetRequiredService<WorkoutDbContext>();
+    return new AnalyticService(analyticsContext, workoutContext);
+});
 
 
 var app = builder.Build();
