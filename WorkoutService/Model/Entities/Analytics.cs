@@ -8,8 +8,8 @@ public class History
     public DateTime PeriodEnd { get; set; }
     public int TotalWorkouts { get; set; }
     public double AverageDuration { get; set; }
-    public int TotalCalories { get; set; }
-    public string BestPerformance { get; set; }
+    public double TotalCalories { get; set; }
+    public string? BestPerformance { get; set; }
     public DateTime CreatedAt { get; set; }
     public DateTime UpdatedAt { get; set; }
 }

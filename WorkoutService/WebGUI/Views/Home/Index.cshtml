@@ -1,8 +1,166 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Fitness Cockpit";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="container py-4">
+    <div class="row g-3 mb-4">
+        <div class="col-md-3">
+            <div class="card h-100">
+                <div class="card-body">
+                    <p class="text-muted text-uppercase fw-semibold small">Letzte Einheit</p>
+                    <h3>HIIT • 35 min</h3>
+                    <p class="mb-0 text-success">420 kcal</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card h-100">
+                <div class="card-body">
+                    <p class="text-muted text-uppercase fw-semibold small">Ø Dauer</p>
+                    <h3>41 min</h3>
+                    <p class="mb-0 text-muted">+8 % vs. Vormonat</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card h-100">
+                <div class="card-body">
+                    <p class="text-muted text-uppercase fw-semibold small">Workouts gesamt</p>
+                    <h3>42</h3>
+                    <p class="mb-0 text-muted">Aktuelle Serie: 5 Tage</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card h-100">
+                <div class="card-body">
+                    <p class="text-muted text-uppercase fw-semibold small">Bestleistung</p>
+                    <h3 class="fs-5">5 km Lauf in 22:15</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row g-4">
+        <div class="col-lg-6">
+            <div class="card h-100">
+                <div class="card-header bg-transparent d-flex justify-content-between align-items-center">
+                    <h2 class="h5 mb-0">Letzte Trainings</h2>
+                    <button class="btn btn-sm btn-outline-primary">Neues Workout</button>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item d-flex justify-content-between">
+                        <div>
+                            <strong>HIIT Intervall</strong>
+                            <div class="text-muted small">Gestern • Hoch</div>
+                        </div>
+                        <div class="text-end">
+                            <div>35 min</div>
+                            <span class="badge bg-success">420 kcal</span>
+                        </div>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between">
+                        <div>
+                            <strong>Krafttraining Push</strong>
+                            <div class="text-muted small">vor 3 Tagen • Mittel</div>
+                        </div>
+                        <div class="text-end">
+                            <div>50 min</div>
+                            <span class="badge bg-success">360 kcal</span>
+                        </div>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between">
+                        <div>
+                            <strong>Yoga & Mobility</strong>
+                            <div class="text-muted small">vor 5 Tagen • Niedrig</div>
+                        </div>
+                        <div class="text-end">
+                            <div>40 min</div>
+                            <span class="badge bg-success">190 kcal</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="col-lg-6">
+            <div class="card h-100">
+                <div class="card-header bg-transparent">
+                    <h2 class="h5 mb-0">Analytics & Trends</h2>
+                </div>
+                <div class="card-body">
+                    <div class="row text-center">
+                        <div class="col-6 col-md-3 mb-3">
+                            <div class="text-muted small">Jan</div>
+                            <div class="display-6">8</div>
+                            <p class="small text-muted mb-0">Sessions</p>
+                        </div>
+                        <div class="col-6 col-md-3 mb-3">
+                            <div class="text-muted small">Feb</div>
+                            <div class="display-6">10</div>
+                            <p class="small text-muted mb-0">Sessions</p>
+                        </div>
+                        <div class="col-6 col-md-3 mb-3">
+                            <div class="text-muted small">Mär</div>
+                            <div class="display-6 text-primary">12</div>
+                            <p class="small text-muted mb-0">Sessions</p>
+                        </div>
+                        <div class="col-6 col-md-3 mb-3">
+                            <div class="text-muted small">Apr</div>
+                            <div class="display-6 text-success">13</div>
+                            <p class="small text-muted mb-0">Sessions</p>
+                        </div>
+                    </div>
+                    <hr/>
+                    <p class="mb-0">Trend zeigt kontinuierlichen Aufbau der Trainingshäufigkeit. Fokus: Intervall- und Mobility-Blöcke balanciert halten.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row g-4 mt-1">
+        <div class="col-lg-6">
+            <div class="card h-100 border-primary">
+                <div class="card-header bg-transparent d-flex justify-content-between align-items-center">
+                    <h2 class="h5 mb-0">Empfehlungen</h2>
+                    <span class="badge bg-primary">Training</span>
+                </div>
+                <div class="card-body">
+                    <h3 class="h6">Progressives Intervalltraining</h3>
+                    <p class="text-muted">Sprint-Intervalle von 30→90 Sekunden erhöhen, um VO2max zu pushen.</p>
+                    <hr>
+                    <h3 class="h6">Proteinreiches Frühstück</h3>
+                    <p class="text-muted">30 g Protein binnen 30 Minuten nach dem Aufstehen unterstützen die Regeneration.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="card h-100">
+                <div class="card-header bg-transparent">
+                    <h2 class="h5 mb-0">Participant Snapshot</h2>
+                </div>
+                <div class="card-body">
+                    <div class="row text-center">
+                        <div class="col-6 col-md-3 mb-3">
+                            <div class="text-muted small">Name</div>
+                            <div class="fw-semibold">Alex Sturm</div>
+                        </div>
+                        <div class="col-6 col-md-3 mb-3">
+                            <div class="text-muted small">Alter</div>
+                            <div class="fw-semibold">31</div>
+                        </div>
+                        <div class="col-6 col-md-3 mb-3">
+                            <div class="text-muted small">Ziel</div>
+                            <div class="fw-semibold">10 km &lt; 50 min</div>
+                        </div>
+                        <div class="col-6 col-md-3 mb-3">
+                            <div class="text-muted small">Erfahrung</div>
+                            <div class="fw-semibold">Fortgeschritten</div>
+                        </div>
+                    </div>
+                    <p class="text-muted mb-0 text-center">Daten dienen nur als UI-Vorschau – Backend-Verknüpfung folgt.</p>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

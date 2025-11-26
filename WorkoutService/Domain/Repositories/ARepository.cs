@@ -6,7 +6,7 @@ namespace Domain.Repositories;
 
 public abstract class ARepositoryAsync<TEntity> : IRepositoryAsync<TEntity> where TEntity : class
 {
-    private readonly DbContext _context;
+    protected readonly DbContext _context;
     private readonly DbSet<TEntity> _table;
 
     public ARepositoryAsync(DbContext context)
