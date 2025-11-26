@@ -7,8 +7,6 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-var app = builder.Build();
-
 builder.Services.AddDbContext<WorkoutDbContext>(options =>
     options.UseMySql(
         builder.Configuration.GetConnectionString("WorkoutDb"),
@@ -28,6 +26,8 @@ builder.Services.AddDbContext<RecommendationDbContext>(options =>
     ));
 
 //builder.Services.AddTransient<IRepositoryAsync<Workout>, WorkoutRepository>();
+
+var app = builder.Build();
 
 
 // Configure the HTTP request pipeline.
