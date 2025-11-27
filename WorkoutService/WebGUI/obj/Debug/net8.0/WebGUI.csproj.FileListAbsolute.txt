@@ -267,6 +267,8 @@ C:\microservices-fitness\WorkoutService\WebGUI\obj\Debug\net8.0\refint\WebGUI.dl
 C:\microservices-fitness\WorkoutService\WebGUI\obj\Debug\net8.0\WebGUI.pdb
 C:\microservices-fitness\WorkoutService\WebGUI\obj\Debug\net8.0\WebGUI.genruntimeconfig.cache
 C:\microservices-fitness\WorkoutService\WebGUI\obj\Debug\net8.0\ref\WebGUI.dll
+C:\microservices-fitness\WorkoutService\WebGUI\bin\Debug\net8.0\Domain.dll
+C:\microservices-fitness\WorkoutService\WebGUI\bin\Debug\net8.0\Domain.pdb
 C:\microservices-fitness\WorkoutService\WebGUI\bin\Debug\net8.0\WebGUI.staticwebassets.endpoints.json
 C:\microservices-fitness\WorkoutService\WebGUI\obj\Debug\net8.0\rpswa.dswa.cache.json
 C:\microservices-fitness\WorkoutService\WebGUI\obj\Debug\net8.0\rjimswa.dswa.cache.json

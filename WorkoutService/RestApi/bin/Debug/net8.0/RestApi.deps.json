@@ -722,14 +722,10 @@
       "System.Threading.Channels/7.0.0": {},
       "Domain/1.0.0": {
         "dependencies": {
-          "Model": "1.0.0",
-          "WebGUI": "1.0.0"
+          "Model": "1.0.0"
         },
         "runtime": {
-          "Domain.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.0.0"
-          }
+          "Domain.dll": {}
         }
       },
       "Model/1.0.0": {
@@ -737,22 +733,7 @@
           "Pomelo.EntityFrameworkCore.MySql": "9.0.0"
         },
         "runtime": {
-          "Model.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.0.0"
-          }
-        }
-      },
-      "WebGUI/1.0.0": {
-        "dependencies": {
-          "Model": "1.0.0",
-          "Pomelo.EntityFrameworkCore.MySql": "9.0.0"
-        },
-        "runtime": {
-          "WebGUI.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.0.0"
-          }
+          "Model.dll": {}
         }
       }
     }
@@ -1126,11 +1107,6 @@
       "sha512": ""
     },
     "Model/1.0.0": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "WebGUI/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

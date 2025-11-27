@@ -1,7 +1,10 @@
-﻿namespace Model.Entities;
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Model.Entities;
 
 public class Workout
 {
+    [Key]
     public int WorkoutId { get; set; }
     public int ParticipantId { get; set; }
     public string ExerciseType { get; set; }

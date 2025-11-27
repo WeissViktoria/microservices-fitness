@@ -30,9 +30,6 @@
             "projectReferences": {
               "C:\\microservices-fitness\\WorkoutService\\Model\\Model.csproj": {
                 "projectPath": "C:\\microservices-fitness\\WorkoutService\\Model\\Model.csproj"
-              },
-              "C:\\microservices-fitness\\WorkoutService\\WebGUI\\WebGUI.csproj": {
-                "projectPath": "C:\\microservices-fitness\\WorkoutService\\WebGUI\\WebGUI.csproj"
               }
             }
           }
@@ -163,103 +160,6 @@
             }
           ],
           "frameworkReferences": {
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "C:\\Users\\ninag\\.dotnet\\sdk\\9.0.306/PortableRuntimeIdentifierGraph.json"
-        }
-      }
-    },
-    "C:\\microservices-fitness\\WorkoutService\\WebGUI\\WebGUI.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "C:\\microservices-fitness\\WorkoutService\\WebGUI\\WebGUI.csproj",
-        "projectName": "WebGUI",
-        "projectPath": "C:\\microservices-fitness\\WorkoutService\\WebGUI\\WebGUI.csproj",
-        "packagesPath": "C:\\Users\\ninag\\.nuget\\packages\\",
-        "outputPath": "C:\\microservices-fitness\\WorkoutService\\WebGUI\\obj\\",
-        "projectStyle": "PackageReference",
-        "configFilePaths": [
-          "C:\\Users\\ninag\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
-        ],
-        "originalTargetFrameworks": [
-          "net8.0"
-        ],
-        "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
-        },
-        "frameworks": {
-          "net8.0": {
-            "targetAlias": "net8.0",
-            "projectReferences": {
-              "C:\\microservices-fitness\\WorkoutService\\Model\\Model.csproj": {
-                "projectPath": "C:\\microservices-fitness\\WorkoutService\\Model\\Model.csproj"
-              }
-            }
-          }
-        },
-        "warningProperties": {
-          "warnAsError": [
-            "NU1605"
-          ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
-        }
-      },
-      "frameworks": {
-        "net8.0": {
-          "targetAlias": "net8.0",
-          "dependencies": {
-            "Microsoft.EntityFrameworkCore.Design": {
-              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[9.0.0, )"
-            },
-            "Pomelo.EntityFrameworkCore.MySql": {
-              "target": "Package",
-              "version": "[9.0.0, )"
-            }
-          },
-          "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48",
-            "net481"
-          ],
-          "assetTargetFallback": true,
-          "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[8.0.21, 8.0.21]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Host.win-x64",
-              "version": "[8.0.21, 8.0.21]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[8.0.21, 8.0.21]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[8.0.21, 8.0.21]"
-            }
-          ],
-          "frameworkReferences": {
-            "Microsoft.AspNetCore.App": {
-              "privateAssets": "none"
-            },
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }

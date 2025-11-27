@@ -29,7 +29,7 @@ public abstract class AController<TEntity, TCreateDto, TReadDto ,TUpdateDto> : C
         return Ok(data.Adapt<TReadDto>());
     }
 
-    [HttpGet("{id:int")]
+    [HttpGet("{id:int}")]
     public async Task<ActionResult<TReadDto>> ReadAsync(int id)
     {
         TEntity? data = await Repository.ReadAsync(id);

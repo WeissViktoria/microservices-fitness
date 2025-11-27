@@ -1,7 +1,10 @@
-﻿namespace Model.Entities;
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Model.Entities;
 
 public class Recommendation
 {
+    [Key]
     public int RecommendationId { get; set; }
     public int ParticipantId { get; set; }
     public string RecommendationType { get; set; }
