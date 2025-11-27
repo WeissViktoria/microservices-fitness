@@ -32,7 +32,7 @@ public class WorkoutController : Controller
 
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Create(WorkoutFormModel form)
+    public async Task<IActionResult> Create([Bind(Prefix = "CreateForm")] WorkoutFormModel form)
     {
         if (!ModelState.IsValid)
         {
