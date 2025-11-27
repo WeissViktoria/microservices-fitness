@@ -5,11 +5,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace RestApi.Controllers;
 
-public abstract class AController<TEntity, TCreateDto, TReadDto ,TUpdateDto> : ControllerBase
+[ApiController]
+public abstract class AController<TEntity, TCreateDto, TReadDto, TUpdateDto> : ControllerBase
     where TEntity : class
-    where TCreateDto : class
-    where TReadDto : class
-    where TUpdateDto : class
 {
     protected readonly IRepositoryAsync<TEntity> Repository;
     protected readonly ILogger<AController<TEntity, TCreateDto, TReadDto, TUpdateDto>> Logger;
@@ -25,45 +23,36 @@ public abstract class AController<TEntity, TCreateDto, TReadDto ,TUpdateDto> : C
     public async Task<ActionResult<TReadDto>> CreateAsync(TCreateDto record)
     {
         var entity = record.Adapt<TEntity>();
-        var data = await Repository.CreateAsync(entity);
-        return Ok(data.Adapt<TReadDto>());
+        var saved = await Repository.CreateAsync(entity);
+        return Ok(saved.Adapt<TReadDto>());
     }
 
-    [HttpGet("{id:int")]
+    [HttpGet("{id:int}")]
     public async Task<ActionResult<TReadDto>> ReadAsync(int id)
     {
-        TEntity? data = await Repository.ReadAsync(id);
-
-        if (data is null)
-        {
-            Logger.LogInformation($"Invalid Request: Entity not present - {id}");
+        var existing = await Repository.ReadAsync(id);
+        if (existing is null)
             return NotFound();
-        }
-        
-        Logger.LogInformation($"Sending Entity: {id}");
-        return Ok(data.Adapt<TReadDto>());
+
+        return Ok(existing.Adapt<TReadDto>());
     }
 
     [HttpGet]
     public async Task<ActionResult<List<TReadDto>>> ReadAllAsync()
     {
         var data = await Repository.ReadAllAsync();
-        var dtos = data.Select(entity => entity.Adapt<TReadDto>()).ToList();
-        return Ok(dtos);
+        return Ok(data.Select(e => e.Adapt<TReadDto>()).ToList());
     }
 
     [HttpPut("{id:int}")]
     public async Task<IActionResult> UpdateAsync(int id, TUpdateDto record)
     {
-        TEntity? data = await Repository.ReadAsync(id);
-
-        if (data is null)
-        {
-            Logger.LogInformation($"Invalid Request: Entity not present - {id}");
+        var existing = await Repository.ReadAsync(id);
+        if (existing is null)
             return NotFound();
-        }
-        await Repository.UpdateAsync(record.Adapt<TEntity>());
-        Logger.LogInformation($"Update Entity: {id}");
+
+        record.Adapt(existing);
+        await Repository.UpdateAsync(existing);
 
         return NoContent();
     }
@@ -71,16 +60,11 @@ public abstract class AController<TEntity, TCreateDto, TReadDto ,TUpdateDto> : C
     [HttpDelete("{id:int}")]
     public async Task<IActionResult> DeleteAsync(int id)
     {
-        TEntity? data = await Repository.ReadAsync(id);
-        
-        if(data is null)
+        var existing = await Repository.ReadAsync(id);
+        if (existing is null)
             return NotFound();
-        
-        await Repository.DeleteAsync(data);
-        Logger.LogInformation($"Delete Entity: {id}");
 
+        await Repository.DeleteAsync(existing);
         return NoContent();
     }
-    
-    
 }
