@@ -22,7 +22,7 @@ public class AController2<TEntity> : ControllerBase where TEntity : class
         return t;
     }
 
-    [HttpGet("{id:int")]
+    [HttpGet("{id:int}")]
     public async Task<ActionResult<TEntity>> Read(int id)
     {
         var data = await _repository.ReadAsync(id);

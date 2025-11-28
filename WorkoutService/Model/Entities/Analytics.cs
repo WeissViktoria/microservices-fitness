@@ -1,7 +1,10 @@
-﻿namespace Model.Entities;
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Model.Entities;
 
 public class History
 {
+    [Key]
     public int AnalyticsId { get; set; }
     public int ParticipantId { get; set; }
     public DateTime PeriodStart { get; set; }

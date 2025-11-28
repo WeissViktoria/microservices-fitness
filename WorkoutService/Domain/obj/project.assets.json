@@ -301,23 +301,6 @@
         "runtime": {
           "bin/placeholder/Model.dll": {}
         }
-      },
-      "WebGUI/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v8.0",
-        "dependencies": {
-          "Model": "1.0.0",
-          "Pomelo.EntityFrameworkCore.MySql": "9.0.0"
-        },
-        "compile": {
-          "bin/placeholder/WebGUI.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/WebGUI.dll": {}
-        },
-        "frameworkReferences": [
-          "Microsoft.AspNetCore.App"
-        ]
       }
     }
   },
@@ -780,17 +763,11 @@
       "type": "project",
       "path": "../Model/Model.csproj",
       "msbuildProject": "../Model/Model.csproj"
-    },
-    "WebGUI/1.0.0": {
-      "type": "project",
-      "path": "../WebGUI/WebGUI.csproj",
-      "msbuildProject": "../WebGUI/WebGUI.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net8.0": [
-      "Model >= 1.0.0",
-      "WebGUI >= 1.0.0"
+      "Model >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -825,11 +802,9 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\Simon\\OneDrive - HTL Krems\\Schule\\5. Klasse\\SEW\\MicroServices\\microservices-fitness\\WorkoutService\\Model\\Model.csproj": {
-              "projectPath": "C:\\Users\\Simon\\OneDrive - HTL Krems\\Schule\\5. Klasse\\SEW\\MicroServices\\microservices-fitness\\WorkoutService\\Model\\Model.csproj"
-            },
-            "C:\\Users\\Simon\\OneDrive - HTL Krems\\Schule\\5. Klasse\\SEW\\MicroServices\\microservices-fitness\\WorkoutService\\WebGUI\\WebGUI.csproj": {
-              "projectPath": "C:\\Users\\Simon\\OneDrive - HTL Krems\\Schule\\5. Klasse\\SEW\\MicroServices\\microservices-fitness\\WorkoutService\\WebGUI\\WebGUI.csproj"
+            "C:\\microservices-fitness\\WorkoutService\\Model\\Model.csproj": {
+              "projectPath": "C:\\microservices-fitness\\WorkoutService\\Model\\Model.csproj"
+
             }
           }
         }

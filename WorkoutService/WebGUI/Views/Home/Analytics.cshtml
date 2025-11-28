@@ -1,205 +1,241 @@
+@using WorkoutAnalyticsItem = WebGUI.Models.Analytics.WorkoutListItemViewModel
+@model AnalyticsPageViewModel
 @{
-    ViewData["Title"] = "Analytics & Insights";
+    ViewData["Title"] = "Workout Cockpit";
+    var summary = Model.Summary;
+    var workouts = Model.RecentWorkouts ?? new List<WorkoutAnalyticsItem>();
+    var history = Model.History ?? new List<AnalyticsHistoryItemViewModel>();
 }
 
 <div class="container py-4">
-    <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center mb-4">
-        <div>
-            <h1 class="display-6">Analyse & Statistiken</h1>
-            <p class="text-muted mb-0">Durchschnittswerte, Trends und Bestleistungen aus Workout-, Analytics- und Recommendation-Service.</p>
-        </div>
-        <div class="mt-3 mt-md-0">
-            <button class="btn btn-outline-primary me-2">
-                <span class="small text-uppercase">WorkoutService</span><br/>
-                Letzte Synchronisation: vor 5 Min.
-            </button>
-            <button class="btn btn-outline-success me-2">
-                <span class="small text-uppercase">AnalyticsService</span><br/>
-                Trenddaten aktiv
-            </button>
-            <button class="btn btn-outline-warning">
-                <span class="small text-uppercase">RecommendationService</span><br/>
-                Neue Tipps verfügbar
-            </button>
-        </div>
-    </div>
+    <header class="mb-4">
+        <h1 class="display-6">Workout-Service Dashboard</h1>
+        <p class="text-muted mb-0">Direkter Zugriff auf Workouts, Auswertungen, Empfehlungen.</p>
+    </header>
 
-    <div class="row g-3 mb-4">
-        <div class="col-md-3">
-            <div class="card h-100 border-0 shadow-sm">
-                <div class="card-body">
-                    <p class="text-muted text-uppercase fw-semibold small">Ø Dauer</p>
-                    <h3>41 min</h3>
-                    <p class="text-success mb-0">+8 % vs. letzter Monat</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="card h-100 border-0 shadow-sm">
-                <div class="card-body">
-                    <p class="text-muted text-uppercase fw-semibold small">Ø Kalorien</p>
-                    <h3>355 kcal</h3>
-                    <p class="text-muted mb-0">basierend auf 42 Workouts</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="card h-100 border-0 shadow-sm">
-                <div class="card-body">
-                    <p class="text-muted text-uppercase fw-semibold small">Bestleistung</p>
-                    <h3 class="fs-5">5 km Lauf in 22:15</h3>
-                    <p class="text-muted mb-0">Ermittelt vom AnalyticsService</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="card h-100 border-0 shadow-sm">
-                <div class="card-body">
-                    <p class="text-muted text-uppercase fw-semibold small">Aktive Empfehlung</p>
-                    <h3 class="fs-5">Progressives Intervalltraining</h3>
-                    <p class="text-muted mb-0">RecommendationService</p>
-                </div>
-            </div>
-        </div>
-    </div>
+    @if (!string.IsNullOrWhiteSpace(Model.ErrorMessage))
+    {
+        <div class="alert alert-warning">@Model.ErrorMessage</div>
+    }
 
-    <div class="row g-4 mb-4">
-        <div class="col-lg-7">
-            <div class="card h-100">
-                <div class="card-header bg-transparent d-flex justify-content-between align-items-center">
-                    <h2 class="h5 mb-0">Workouts (letzte 30 Tage)</h2>
-                    <span class="text-muted small">Quelle: WorkoutService</span>
-                </div>
-                <div class="card-body">
-                    <div class="table-responsive">
-                        <table class="table align-middle mb-0">
-                            <thead>
-                            <tr>
-                                <th>Datum</th>
-                                <th>Typ</th>
-                                <th>Intensität</th>
-                                <th>Dauer</th>
-                                <th>Kalorien</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <td>21.05.</td>
-                                <td>HIIT</td>
-                                <td><span class="badge bg-danger">Hoch</span></td>
-                                <td>35 min</td>
-                                <td>420</td>
-                            </tr>
-                            <tr>
-                                <td>19.05.</td>
-                                <td>Krafttraining</td>
-                                <td><span class="badge bg-warning text-dark">Mittel</span></td>
-                                <td>50 min</td>
-                                <td>360</td>
-                            </tr>
-                            <tr>
-                                <td>17.05.</td>
-                                <td>Yoga</td>
-                                <td><span class="badge bg-success">Niedrig</span></td>
-                                <td>40 min</td>
-                                <td>190</td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
+    <!-- Dashboard -->
+    <section class="mb-4">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <h2 class="h5 mb-0">Dashboard</h2>
+            <form class="d-flex gap-2" asp-action="Analytics" method="get">
+                <input type="number" min="1" class="form-control form-control-sm" name="participantId" value="@Model.Request.ParticipantId" />
+                <input type="date" class="form-control form-control-sm" name="periodStart" value="@Model.Request.PeriodStart.ToString("yyyy-MM-dd")" />
+                <input type="date" class="form-control form-control-sm" name="periodEnd" value="@Model.Request.PeriodEnd.ToString("yyyy-MM-dd")" />
+                <button class="btn btn-outline-secondary btn-sm" type="submit">Aktualisieren</button>
+            </form>
         </div>
-        <div class="col-lg-5">
-            <div class="card h-100">
-                <div class="card-header bg-transparent d-flex justify-content-between align-items-center">
-                    <h2 class="h5 mb-0">Trenddiagramm</h2>
-                    <span class="text-muted small">AnalyticsService</span>
-                </div>
-                <div class="card-body">
-                    <div class="row text-center">
-                        <div class="col-6 mb-3">
-                            <div class="text-muted text-uppercase small">Monatl. Workouts</div>
-                            <div class="display-6">13</div>
-                            <p class="text-success small mb-0">+1 vs. März</p>
-                        </div>
-                        <div class="col-6 mb-3">
-                            <div class="text-muted text-uppercase small">Kalorien Trend</div>
-                            <div class="display-6">+6%</div>
-                            <p class="text-muted small mb-0">durch längere Sessions</p>
-                        </div>
-                    </div>
-                    <div class="bg-light rounded p-4">
-                        <p class="text-muted small mb-1">Diagramm-Platzhalter</p>
-                        <div class="progress mb-2" style="height: 6px;">
-                            <div class="progress-bar bg-primary" role="progressbar" style="width: 80%;"></div>
-                        </div>
-                        <div class="progress" style="height: 6px;">
-                            <div class="progress-bar bg-success" role="progressbar" style="width: 65%;"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 
-    <div class="row g-4">
-        <div class="col-lg-6">
-            <div class="card h-100">
-                <div class="card-header bg-transparent d-flex justify-content-between align-items-center">
-                    <h2 class="h5 mb-0">Bestleistungen</h2>
-                    <span class="text-muted small">AnalyticsService</span>
+        <div class="row g-3">
+            <div class="col-md-3">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <p class="text-muted small text-uppercase mb-1">Ø Dauer</p>
+                        <h3>@(summary?.AverageDuration.ToString("0.0") ?? "–") min</h3>
+                        <p class="text-muted mb-0">Zeitraum @summary?.PeriodStart.ToShortDateString() – @summary?.PeriodEnd.ToShortDateString()</p>
+                    </div>
                 </div>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                        <div>
-                            <strong>10 km Lauf</strong>
-                            <div class="text-muted small">April • Tempodurchschnitt 4:52 min/km</div>
-                        </div>
-                        <span class="badge bg-primary">Neue PB</span>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                        <div>
-                            <strong>Max. Deadlift</strong>
-                            <div class="text-muted small">März • 165 kg</div>
-                        </div>
-                        <span class="badge bg-secondary">+5 kg</span>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                        <div>
-                            <strong>VO2max Score</strong>
-                            <div class="text-muted small">aktuell 52 ml/kg/min</div>
-                        </div>
-                        <span class="badge bg-success">im grünen Bereich</span>
-                    </li>
-                </ul>
+            </div>
+            <div class="col-md-3">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <p class="text-muted small text-uppercase mb-1">Kalorien</p>
+                        <h3>@(summary?.TotalCalories.ToString("0") ?? "0") kcal</h3>
+                        <p class="text-muted mb-0">Bestleistung: @summary?.BestPerformance ?? "n/a"</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <p class="text-muted small text-uppercase mb-1">Workouts</p>
+                        <h3>@(summary?.TotalWorkouts ?? 0)</h3>
+                        <p class="text-muted mb-0">Teilnehmer #@Model.Request.ParticipantId</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <p class="text-muted small text-uppercase mb-1">Letzte Einheit</p>
+                        @if (workouts.Any())
+                        {
+                            var latest = workouts.First();
+                            <h3>@latest.ExerciseType</h3>
+                            <p class="text-success mb-0">@latest.Duration min • @latest.Calories kcal</p>
+                        }
+                        else
+                        {
+                            <p class="mb-0">Keine Daten im Zeitraum.</p>
+                        }
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="col-lg-6">
-            <div class="card h-100 border-primary">
-                <div class="card-header bg-transparent d-flex justify-content-between align-items-center">
-                    <h2 class="h5 mb-0">Empfehlungen</h2>
-                    <span class="text-muted small">RecommendationService</span>
-                </div>
-                <div class="card-body">
-                    <div class="mb-4">
-                        <span class="badge bg-primary mb-2">Training</span>
-                        <h3 class="h6 mb-1">Progressives Intervalltraining</h3>
-                        <p class="text-muted mb-0">Sprint-Intervalle 30/90 s für VO2max-Boost – basierend auf AnalyticsTrend.</p>
-                    </div>
-                    <div class="mb-4">
-                        <span class="badge bg-success mb-2">Ernährung</span>
-                        <h3 class="h6 mb-1">Proteinreiches Frühstück</h3>
-                        <p class="text-muted mb-0">30 g Protein in den ersten 30 Minuten fördert Regeneration nach Morgen-Workouts.</p>
-                    </div>
+    </section>
+
+    <!-- Workout-Erfassung -->
+    <section class="mb-4">
+        <div class="card">
+            <div class="card-header">
+                <div class="d-flex justify-content-between align-items-center">
                     <div>
-                        <span class="badge bg-warning text-dark mb-2">Lifestyle</span>
-                        <h3 class="h6 mb-1">Aktive Regeneration</h3>
-                        <p class="text-muted mb-0">Zwei Mobility-Sessions pro Woche reduzieren das Verletzungsrisiko um 14 %.</p>
+                        <h2 class="h5 mb-0">Workout-Erfassung</h2>
+                        <small class="text-muted">Teilnehmer #@Model.Request.ParticipantId • WorkoutService (CRUD)</small>
+                    </div>
+                    <div class="text-muted small text-end">
+                        <div>Übungsart • Dauer • Intensität • Wiederholungen</div>
+                        <div>Alle Angaben werden direkt im WorkoutDB.Workouts gespeichert.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <form asp-controller="Workout" asp-action="Create" method="post" class="row g-3">
+                    @Html.AntiForgeryToken()
+                    <div class="col-md-2">
+                        <label class="form-label">Teilnehmer</label>
+                        <input class="form-control" type="number" min="1" name="CreateForm.ParticipantId" value="@Model.Request.ParticipantId" required />
+                    </div>
+                    <div class="col-md-3">
+                        <label class="form-label">Übungsart</label>
+                        <input class="form-control" name="CreateForm.ExerciseType" placeholder="z.B. HIIT" required />
+                    </div>
+                    <div class="col-md-2">
+                        <label class="form-label">Dauer (min)</label>
+                        <input class="form-control" type="number" min="1" max="300" name="CreateForm.Duration" value="30" required />
+                    </div>
+                    <div class="col-md-2">
+                        <label class="form-label">Wdh.</label>
+                        <input class="form-control" type="number" min="0" max="1000" name="CreateForm.Repetitions" value="10" required />
+                    </div>
+                    <div class="col-md-2">
+                        <label class="form-label">Intensität</label>
+                        <select class="form-select" name="CreateForm.Intensity">
+                            <option>Niedrig</option>
+                            <option>Mittel</option>
+                            <option>Hoch</option>
+                        </select>
+                    </div>
+                    <div class="col-md-2">
+                        <label class="form-label">Datum</label>
+                        <input class="form-control" type="date" name="CreateForm.Date" value="@DateTime.Today:yyyy-MM-dd" required />
+                    </div>
+                    <div class="col-12">
+                        <button class="btn btn-primary" type="submit">Workout speichern</button>
+                        <a class="btn btn-outline-secondary" asp-controller="Workout" asp-action="Index" asp-route-participantId="@Model.Request.ParticipantId">Zur Verwaltung</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Analyse & Statistiken -->
+    <section class="mb-4">
+        <div class="card">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <div>
+                    <h2 class="h5 mb-0">Analyse & Statistiken</h2>
+                    <small class="text-muted">Quelle: AnalyticsDb.History</small>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive mb-3">
+                    <table class="table align-middle mb-0">
+                        <thead class="table-light">
+                        <tr>
+                            <th>Zeitraum</th>
+                            <th>Workouts</th>
+                            <th>Ø Dauer</th>
+                            <th>Kalorien</th>
+                            <th>Bestleistung</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @if (history.Any())
+                        {
+                            foreach (var item in history)
+                            {
+                                <tr>
+                                    <td>@item.PeriodStart:dd.MM.yyyy – @item.PeriodEnd:dd.MM.yyyy</td>
+                                    <td>@item.TotalWorkouts</td>
+                                    <td>@item.AverageDuration.ToString("0.0") min</td>
+                                    <td>@item.TotalCalories.ToString("0") kcal</td>
+                                    <td>@(string.IsNullOrWhiteSpace(item.BestPerformance) ? "–" : item.BestPerformance)</td>
+                                </tr>
+                            }
+                        }
+                        else
+                        {
+                            <tr>
+                                <td colspan="5" class="text-muted text-center">Keine Historie vorhanden.</td>
+                            </tr>
+                        }
+                        </tbody>
+                    </table>
+                </div>
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <div class="p-3 bg-light rounded">
+                            <h5>Trend</h5>
+                            <p class="mb-1">Vergleich der letzten Perioden</p>
+                            <ul class="mb-0">
+                                <li>Workouts: @(history.Take(2).Select(h => h.TotalWorkouts).FirstOrDefault()) → @(history.Skip(1).Take(1).Select(h => h.TotalWorkouts).FirstOrDefault())</li>
+                                <li>Dauer: @(history.Take(2).Select(h => h.AverageDuration.ToString("0")).FirstOrDefault()) → @(history.Skip(1).Take(1).Select(h => h.AverageDuration.ToString("0")).FirstOrDefault())</li>
+                                <li>Kalorien: @(history.Take(2).Select(h => h.TotalCalories.ToString("0")).FirstOrDefault()) → @(history.Skip(1).Take(1).Select(h => h.TotalCalories.ToString("0")).FirstOrDefault())</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="p-3 border rounded">
+                            <h5>Letzte Workouts</h5>
+                            <ul class="list-unstyled mb-0">
+                                @foreach (var workout in workouts.Take(5))
+                                {
+                                    <li class="mb-2 d-flex justify-content-between">
+                                        <span>@workout.Date:dd.MM • @workout.ExerciseType</span>
+                                        <span>@workout.Duration min / @workout.Calories kcal</span>
+                                    </li>
+                                }
+                                @if (!workouts.Any())
+                                {
+                                    <li class="text-muted">Keine Workouts gefunden.</li>
+                                }
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
+
+    <!-- Empfehlungen -->
+    <section>
+        <div class="card border-primary">
+            <div class="card-header bg-primary text-white">
+                <h2 class="h5 mb-0">Empfehlungen</h2>
+                <small>RecommendationService</small>
+            </div>
+            <div class="card-body">
+                <div class="row g-3">
+                    <div class="col-md-4">
+                        <h6>Training</h6>
+                        <p class="mb-0">Progressives Intervalltraining mit 30/90s Intervallen, sobald Ø Kalorien sinkt.</p>
+                    </div>
+                    <div class="col-md-4">
+                        <h6>Ernährung</h6>
+                        <p class="mb-0">30 g Protein innerhalb von 30 Minuten nach Morning-Workouts zur Regeneration.</p>
+                    </div>
+                    <div class="col-md-4">
+                        <h6>Fortschritt</h6>
+                        <p class="mb-0">Zwei Mobility-Sessions pro Woche halten Intensität hoch und senken Verletzungsrisiko.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 </div>
 
