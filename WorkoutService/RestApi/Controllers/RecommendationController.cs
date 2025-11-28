@@ -6,14 +6,14 @@ using RestApi.Dtos;
 namespace RestApi.Controllers;
 
 [ApiController]
-[Route("[recommendation]")]
-public class RecommendationController : AController<Recommendation, ReadRecommendationDto, 
-    CreateRecommendationDto, UpdateRecommendationDto>
+[Route("api/[controller]")]
+public class RecommendationController 
+    : AController<Recommendation, CreateRecommendationDto, ReadRecommendationDto, UpdateRecommendationDto>
 {
-    public RecommendationController(IRepositoryAsync<Recommendation> repository,
-        ILogger<AController<Recommendation, ReadRecommendationDto, 
-            CreateRecommendationDto, UpdateRecommendationDto>> logger) : base(repository, logger)
+    public RecommendationController(
+        IRepositoryAsync<Recommendation> repository,
+        ILogger<AController<Recommendation, CreateRecommendationDto, ReadRecommendationDto, UpdateRecommendationDto>> logger
+    ) : base(repository, logger)
     {
-        
     }
 }

@@ -17,4 +17,15 @@ CREATE TABLE IF NOT EXISTS History (
 
 
 
-CREATE DATABASE RecommendationDB;
+CREATE DATABASE IF NOT EXISTS RecommendationDB;
+USE RecommendationDB;
+CREATE TABLE IF NOT EXISTS Recommendations (
+                                               RecommendationId INT AUTO_INCREMENT PRIMARY KEY,
+                                               ParticipantId INT NOT NULL,
+                                               RecommendationType VARCHAR(50) NOT NULL,
+    Description VARCHAR(500) NOT NULL,
+    DateGenerated DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    CreatedAt DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    UpdatedAt DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+    );
+
