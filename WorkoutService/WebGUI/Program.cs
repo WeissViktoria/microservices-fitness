@@ -58,6 +58,15 @@ builder.Services.AddScoped<IRepositoryAsync<Workout>>(sp =>
 });
 builder.Services.AddScoped<Domain.Services.WorkoutService>();
 
+// Register RecommendationService
+builder.Services.AddScoped<Domain.Services.RecommendationService>(sp =>
+{
+    var recommendationContext = sp.GetRequiredService<RecommendationDbContext>();
+    var workoutContext = sp.GetRequiredService<WorkoutDbContext>();
+    var analyticsContext = sp.GetRequiredService<AnalyticsDbContext>();
+    return new Domain.Services.RecommendationService(recommendationContext, workoutContext, analyticsContext);
+});
+
 var app = builder.Build();
 
 

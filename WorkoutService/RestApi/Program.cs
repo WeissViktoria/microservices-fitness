@@ -4,6 +4,7 @@ using Domain.Services;
 using Microsoft.EntityFrameworkCore;
 using Model.Configuration;
 using Model.Entities;
+using RestApi;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -31,6 +32,13 @@ builder.Services.AddDbContext<RecommendationDbContext>(options =>
         builder.Configuration.GetConnectionString("RecommendationDB"),
         ServerVersion.AutoDetect(builder.Configuration.GetConnectionString("RecommendationDB"))
     ));
+
+builder.Services.AddHttpClient<IParticipantClient, ParticipantClient>(client =>
+{
+    // URL of your ParticipantService
+    client.BaseAddress = new Uri("http://10.0.28.72:5092/");
+});
+
 
 // Register repositories
 builder.Services.AddScoped<IRepositoryAsync<Workout>>(sp =>

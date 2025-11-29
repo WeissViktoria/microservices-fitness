@@ -3252,24 +3252,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Simon\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\ninag\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Simon\\OneDrive - HTL Krems\\Schule\\5. Klasse\\SEW\\MicroServices\\microservices-fitness\\WorkoutService\\RestApi\\RestApi.csproj",
+      "projectUniqueName": "C:\\microservices-fitness\\WorkoutService\\RestApi\\RestApi.csproj",
       "projectName": "RestApi",
-      "projectPath": "C:\\Users\\Simon\\OneDrive - HTL Krems\\Schule\\5. Klasse\\SEW\\MicroServices\\microservices-fitness\\WorkoutService\\RestApi\\RestApi.csproj",
-      "packagesPath": "C:\\Users\\Simon\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Simon\\OneDrive - HTL Krems\\Schule\\5. Klasse\\SEW\\MicroServices\\microservices-fitness\\WorkoutService\\RestApi\\obj\\",
+      "projectPath": "C:\\microservices-fitness\\WorkoutService\\RestApi\\RestApi.csproj",
+      "packagesPath": "C:\\Users\\ninag\\.nuget\\packages\\",
+      "outputPath": "C:\\microservices-fitness\\WorkoutService\\RestApi\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Simon\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\ninag\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -3283,11 +3278,11 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\Simon\\OneDrive - HTL Krems\\Schule\\5. Klasse\\SEW\\MicroServices\\microservices-fitness\\WorkoutService\\Domain\\Domain.csproj": {
-              "projectPath": "C:\\Users\\Simon\\OneDrive - HTL Krems\\Schule\\5. Klasse\\SEW\\MicroServices\\microservices-fitness\\WorkoutService\\Domain\\Domain.csproj"
+            "C:\\microservices-fitness\\WorkoutService\\Domain\\Domain.csproj": {
+              "projectPath": "C:\\microservices-fitness\\WorkoutService\\Domain\\Domain.csproj"
             },
-            "C:\\Users\\Simon\\OneDrive - HTL Krems\\Schule\\5. Klasse\\SEW\\MicroServices\\microservices-fitness\\WorkoutService\\Model\\Model.csproj": {
-              "projectPath": "C:\\Users\\Simon\\OneDrive - HTL Krems\\Schule\\5. Klasse\\SEW\\MicroServices\\microservices-fitness\\WorkoutService\\Model\\Model.csproj"
+            "C:\\microservices-fitness\\WorkoutService\\Model\\Model.csproj": {
+              "projectPath": "C:\\microservices-fitness\\WorkoutService\\Model\\Model.csproj"
             }
           }
         }
@@ -3301,8 +3296,7 @@
         "enableAudit": "true",
         "auditLevel": "low",
         "auditMode": "direct"
-      },
-      "SdkAnalysisLevel": "9.0.300"
+      }
     },
     "frameworks": {
       "net8.0": {
@@ -3338,6 +3332,24 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.AspNetCore.App.Ref",
+            "version": "[8.0.21, 8.0.21]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Host.win-x64",
+            "version": "[8.0.21, 8.0.21]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Ref",
+            "version": "[8.0.21, 8.0.21]"
+          },
+          {
+            "name": "Microsoft.WindowsDesktop.App.Ref",
+            "version": "[8.0.21, 8.0.21]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.AspNetCore.App": {
             "privateAssets": "none"
@@ -3346,7 +3358,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.305/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Users\\ninag\\.dotnet\\sdk\\9.0.306/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

@@ -1,0 +1,130 @@
+@model RecommendationPageViewModel
+@{
+    ViewData["Title"] = "Recommendation generieren";
+}
+
+<div class="container py-4">
+    <header class="mb-4">
+        <h1 class="display-6">Recommendation generieren</h1>
+        <p class="text-muted mb-0">Recommendation basieren auf Workouts und Analysedaten, Typ (Training/Ernährung) korrekt</p>
+    </header>
+
+    @if (!string.IsNullOrWhiteSpace(Model.ErrorMessage))
+    {
+        <div class="alert alert-warning">@Model.ErrorMessage</div>
+    }
+
+    <!-- Eingabeformular -->
+    <section class="mb-4">
+        <div class="card">
+            <div class="card-header">
+                <h2 class="h5 mb-0">Recommendation generieren</h2>
+                <small class="text-muted">Eingabe: Teilnehmer-ID • Payment-Status für Premium-Recommendation</small>
+            </div>
+            <div class="card-body">
+                <form asp-action="Generate" method="post" class="row g-3">
+                    @Html.AntiForgeryToken()
+                    <div class="col-md-4">
+                        <label class="form-label">Teilnehmer-ID</label>
+                        <input class="form-control" type="number" min="1" 
+                               asp-for="Request.ParticipantId" required />
+                        <span asp-validation-for="Request.ParticipantId" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-4">
+                        <label class="form-label">Payment-Status</label>
+                        <div class="form-check form-switch mt-2">
+                            <input class="form-check-input" type="checkbox" 
+                                   asp-for="Request.IsPremium" id="isPremium" />
+                            <label class="form-check-label" for="isPremium">
+                                Premium aktiviert
+                            </label>
+                        </div>
+                        <small class="text-muted">Wenn aktiviert, werden Premium-Recommendation sichtbar</small>
+                    </div>
+                    <div class="col-md-4 d-flex align-items-end">
+                        <button class="btn btn-primary" type="submit">
+                            <i class="bi bi-lightning-charge"></i> Recommendation generieren
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recommendation anzeigen -->
+    @if (Model.HasRecommendations)
+    {
+        <section>
+            <div class="card border-primary">
+                <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+                    <div>
+                        <h2 class="h5 mb-0">Recommendation für Teilnehmer #@Model.Request.ParticipantId</h2>
+                        <small>
+                            @if (Model.Request.IsPremium)
+                            {
+                                <span class="badge bg-warning text-dark">Premium aktiviert</span>
+                            }
+                            else
+                            {
+                                <span class="badge bg-secondary">Standard</span>
+                            }
+                        </small>
+                    </div>
+                    <span class="badge bg-light text-dark">@Model.Recommendations.Count Recommendation</span>
+                </div>
+                <div class="card-body">
+                    <div class="row g-3">
+                        @foreach (var recommendation in Model.Recommendations)
+                        {
+                            <div class="col-md-6">
+                                <div class="card h-100 @(recommendation.IsPremium ? "border-warning" : "")">
+                                    <div class="card-header d-flex justify-content-between align-items-center">
+                                        <span class="badge @(recommendation.RecommendationType == "Training" ? "bg-primary" : "bg-success")">
+                                            @recommendation.RecommendationType
+                                        </span>
+                                        @if (recommendation.IsPremium)
+                                        {
+                                            <span class="badge bg-warning text-dark">
+                                                <i class="bi bi-star-fill"></i> PREMIUM
+                                            </span>
+                                        }
+                                    </div>
+                                    <div class="card-body">
+                                        <p class="card-text">@recommendation.Description</p>
+                                        <small class="text-muted">
+                                            Generiert am: @recommendation.DateGenerated.ToString("dd.MM.yyyy HH:mm")
+                                        </small>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </section>
+    }
+    else
+    {
+        <section>
+            <div class="card">
+                <div class="card-body text-center py-5">
+                    <p class="text-muted mb-0">
+                        @if (Model.Request.ParticipantId > 0)
+                        {
+                            <span>Keine Recommendation gefunden. Klicken Sie auf "Recommendation generieren" um neue Recommendation zu erstellen.</span>
+                        }
+                        else
+                        {
+                            <span>Bitte geben Sie eine Teilnehmer-ID ein und generieren Sie Recommendation.</span>
+                        }
+                    </p>
+                </div>
+            </div>
+        </section>
+    }
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+

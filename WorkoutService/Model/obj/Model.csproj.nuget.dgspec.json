@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Simon\\OneDrive - HTL Krems\\Schule\\5. Klasse\\SEW\\MicroServices\\microservices-fitness\\WorkoutService\\Model\\Model.csproj": {}
+    "C:\\microservices-fitness\\WorkoutService\\Model\\Model.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Simon\\OneDrive - HTL Krems\\Schule\\5. Klasse\\SEW\\MicroServices\\microservices-fitness\\WorkoutService\\Model\\Model.csproj": {
+    "C:\\microservices-fitness\\WorkoutService\\Model\\Model.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Simon\\OneDrive - HTL Krems\\Schule\\5. Klasse\\SEW\\MicroServices\\microservices-fitness\\WorkoutService\\Model\\Model.csproj",
+        "projectUniqueName": "C:\\microservices-fitness\\WorkoutService\\Model\\Model.csproj",
         "projectName": "Model",
-        "projectPath": "C:\\Users\\Simon\\OneDrive - HTL Krems\\Schule\\5. Klasse\\SEW\\MicroServices\\microservices-fitness\\WorkoutService\\Model\\Model.csproj",
-        "packagesPath": "C:\\Users\\Simon\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Simon\\OneDrive - HTL Krems\\Schule\\5. Klasse\\SEW\\MicroServices\\microservices-fitness\\WorkoutService\\Model\\obj\\",
+        "projectPath": "C:\\microservices-fitness\\WorkoutService\\Model\\Model.csproj",
+        "packagesPath": "C:\\Users\\ninag\\.nuget\\packages\\",
+        "outputPath": "C:\\microservices-fitness\\WorkoutService\\Model\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Simon\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\ninag\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -43,8 +39,7 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        },
-        "SdkAnalysisLevel": "9.0.300"
+        }
       },
       "frameworks": {
         "net8.0": {
@@ -72,12 +67,26 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[8.0.21, 8.0.21]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[8.0.21, 8.0.21]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[8.0.21, 8.0.21]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.305/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Users\\ninag\\.dotnet\\sdk\\9.0.306/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
